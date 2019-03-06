@@ -27,7 +27,7 @@ gulp.task('watch', function() {
 	// })	
 	
 	watch('./app/assets/styles/**/*.css', function () {		
-		return gulp.src('./app/assets/styles/style.css')
+		return gulp.src('./app/assets/styles/styles.css')
 		.pipe(postcss([cssImport, mixins, cssvars, nested, autoprefixer]))
 		.on('error', function(errorInfo) {
 			console.log(errorInfo.toString());
@@ -37,7 +37,7 @@ gulp.task('watch', function() {
 	})
 	
 	watch('./app/assets/styles/**/*.css', function () {		
-		return gulp.src('./app/temp/styles/style.css')
+		return gulp.src('./app/temp/styles/styles.css')
 		.pipe(browserSync.stream());
 	})
 });
