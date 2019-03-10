@@ -7,6 +7,7 @@ var nested = require('postcss-nested');
 var cssImport = require('postcss-import');
 var browserSync = require('browser-sync').create();
 var mixins = require('postcss-mixins');
+var hexrgba = require('postcss-hexrgba');
 
 
 gulp.task('watch', function() {
@@ -28,7 +29,7 @@ gulp.task('watch', function() {
 	
 	watch('./app/assets/styles/**/*.css', function () {		
 		return gulp.src('./app/assets/styles/styles.css')
-		.pipe(postcss([cssImport, mixins, cssvars, nested, autoprefixer]))
+		.pipe(postcss([cssImport, mixins, cssvars, nested, hexrgba, autoprefixer]))
 		.on('error', function(errorInfo) {
 			console.log(errorInfo.toString());
 			this.emit('end');
