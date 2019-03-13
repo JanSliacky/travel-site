@@ -8,6 +8,7 @@ var cssImport = require('postcss-import');
 var browserSync = require('browser-sync').create();
 var mixins = require('postcss-mixins');
 var hexrgba = require('postcss-hexrgba');
+var webpack = require('webpack');
 
 
 gulp.task('watch', function() {
@@ -35,7 +36,18 @@ gulp.task('watch', function() {
 			this.emit('end');
 		})
 		.pipe(gulp.dest('./app/temp/styles'));		
-	})
+	});
+	
+	watch('./app/assets/scripts/**/*.js', function() {
+		webpack(require('../../../webpack.config.js'), function(err, stats) {
+		if(err) {
+			console.log(err.toString());
+		}	
+		console.log(stats.toString());	
+		});
+		browserSync.reload();
+	
+	});
 	
 	watch('./app/assets/styles/**/*.css', function () {		
 		return gulp.src('./app/temp/styles/styles.css')
