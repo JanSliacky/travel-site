@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[1],[,function(o,s){o.exports=class{constructor(o,s){this.name=o,this.favouriteColor=s}greet(){console.log("Hi there, my name is "+this.name+" and my fav color is "+this.favouriteColor)}}}]]);

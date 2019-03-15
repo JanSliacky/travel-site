@@ -1,7 +1,16 @@
-var Person = require('./modules/Person');
+// var Person = require('./modules/Person');
+import Person from './modules/Person';
 
-alert('hello kiss kiss yes locika bla');
+class Adult extends Person {
+	payTaxes() {
+		console.log(this.name + " works");
+	}
+}
 
 
-var john = new Person('John Doe', 'blue');
+var john = new Person('John Doe', 'piss');
 john.greet();
+
+var jane = new Adult('Jane Jaden', 'fuck');
+jane.greet();
+jane.payTaxes();
